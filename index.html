@@ -1,6 +1,7 @@
 <html>
   <head>
     <script src="aframe.min.js"></script>
+    <script src="changecolor.js"></script>
     
   </head>
   <body>
@@ -17,12 +18,21 @@
         depth="1"
         animation__mouseenter="property: color; to: #f00; dur: 300; startEvents: mouseenter"
         animation__mouseleave="property: color; to: #6173F4; dur: 300; startEvents: mouseleave"
-        >
+        >  
       </a-box>
         
-    <a-camera>
-      <a-cursor></a-cursor>
-    </a-camera>
+      <a-box
+        position="-2 1 -5"
+        color="#6173F4"
+        rotation="0 45 45"
+        depth="1"
+        change-color=""
+        >
+      </a-box>
+      <a-entity cursor="rayOrigin:mouse"></a-entity>
+    <!--a-camera>
+      <a-cursor scale="0.5 0.5"></a-cursor>
+    </a-camera-->
 
     </a-scene>
     

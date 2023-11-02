@@ -1,40 +1,50 @@
 <html>
   <head>
-    <script src="aframe.min.js"></script>
+    <title>Most Basic Super-Hands Example</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-babia-components/dist/aframe-babia-components.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.5/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
     <script src="changecolor.js"></script>
-    
   </head>
+  
   <body>
-    <script src="box.js"></script>
-    <script src="followcomp.js"></script>
-    <a-scene>
-      <a-entity id="cajita" box="width: 1; height: 1; depth: 1; color: orange" rotation="0 45 45"
-      position="0 1 -5"></a-entity>
-
-      <a-box
-        position="2 1 -5"
-        color="#6173F4"
-        rotation="0 45 45"
-        depth="1"
-        animation__mouseenter="property: color; to: #f00; dur: 300; startEvents: mouseenter"
-        animation__mouseleave="property: color; to: #6173F4; dur: 300; startEvents: mouseleave"
-        >  
-      </a-box>
-        
-      <a-box
-        position="-2 1 -5"
-        color="#6173F4"
-        rotation="0 45 45"
-        depth="1"
-        change-color=""
-        >
-      </a-box>
-      <a-entity cursor="rayOrigin:mouse"></a-entity>
-    <!--a-camera>
-      <a-cursor scale="0.5 0.5"></a-cursor>
-    </a-camera-->
-
-    </a-scene>
     
+    <a-scene>
+      <a-entity environment ></a-entity>
+      <a-light type="point" intensity="1" position="0 -1 25"></a-light> 
+      <a-entity movement-controls="fly: true" position="0 1 0">
+        <a-entity id="camera" camera position="0 25 5" look-controls></a-entity> 
+        <a-entity cursor="rayOrigin:mouse"></a-entity>
+        <a-entity laser-controls="hand: right"></a-entity>
+        <a-entity sphere-collider="objects: a-sphere" super-hands hand-controls="hand: left"></a-entity>
+        <a-entity sphere-collider="objects: a-sphere" super-hands hand-controls="hand: right"></a-entity>
+    </a-entity>
+      <a-entity babia-bubbles='x_axis: key; z_axis: key2; legend: true; palette: foxy;
+            titleColor: #FFFFFF; titleFont: #optimerBoldFont; titlePosition: -8.5 0.5 0; heightMax: 15; radiusMax: 1;
+            data: [{"key":"David","key2":"2019","height":1,"radius":9},{"key":"David","key2":"2018","height":20,"radius":8},
+            {"key":"David","key2":"2017","height":3,"radius":7},{"key":"David","key2":"2016","height":7,"radius":6},
+            {"key":"David","key2":"2015","height":10,"radius":5},{"key":"Pete","key2":"2011","height":7,"radius":8},
+            {"key":"Pete","key2":"2014","height":3,"radius":7},{"key":"Josh","key2":"2016","height":8,"radius":6},
+            {"key":"Josh","key2":"2015","height":11,"radius":5},{"key":"Jesus","key2":"2016","height":9,"radius":9},
+            {"key":"Jesus","key2":"2011","height":3,"radius":8},{"key":"Jesus","key2":"2014","height":12,"radius":7},
+            {"key":"Jesus","key2":"2000","height":6,"radius":6},{"key":"Jesus","key2":"2015","height":1,"radius":5},
+            {"key":"Jesus","key2":"2008","height":5,"radius":9},{"key":"Steve","key2":"2016","height":6,"radius":9},
+            {"key":"Steve","key2":"2017","height":8,"radius":8},{"key":"Steve","key2":"2014","height":0,"radius":7},
+            {"key":"Steve","key2":"2013","height":3,"radius":6},{"key":"Moreno","key2":"2015","height":2,"radius":5},
+            {"key":"Jesus","key2":"2019","height":9,"radius":10},{"key":"Pete","key2":"2019","height":12,"radius":10}]'
+            scale="0.2 0.2 0.2" position="0 0 0" rotation="0 0 0" change-color>
+          </a-entity>
+      <a-box  grabbable
+          position="0 10 10"
+          color="#7471EB"
+          >
+      </a-box>
+      <!-- hover & drag-drop won't have any obvious effect without some additional event handlers or components. See the examples page for more -->
+      <a-box hoverable grabbable stretchable draggable droppable color="blue" position="-1 1.5 1"></a-box>
+      <a-sphere grabbable color="blue" position="-1 1.5 -1"></a-sphere>
+    </a-scene>
   </body>
 </html>

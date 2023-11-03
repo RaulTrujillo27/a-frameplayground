@@ -1,4 +1,4 @@
-AFRAME.registerComponent('change-color', {
+AFRAME.registerComponent('set-grabbable', {
     init: function(){
       setTimeout(setGrabbable,5000);
     }     

@@ -1,6 +1,7 @@
 # a-frameplayground
 
-En la primera fase de desarrollo de este playground he creado dos cajas, 
-una de simple prueba con ninguna acción y otra con la acción de cambiar 
-de color mientras se mantiene el puntero encima de la misma.
+Demo con una esfera, una caja y un grafico generado con babbia-bubbles para probar el componente "grabbable" de super-hands-component.
+Habiendo marcado como sphere-collider la esfera, puedo agarrar y mover la esfera azul, pero no es posible mover las burbujas. 
+Tengo un setTimeOut en la funcion init del component que aplica el grabbable sobre las burbujas, para que se genere la geometria de las mismas antes de nada.
+
 
